@@ -30,7 +30,7 @@ namespace Xpand.XAF.Modules.Speech.BusinessObjects {
     [CloneModelView(CloneViewType.DetailView,"SpeechText_Keyword_DetailView")]
     [DefaultProperty(nameof(Text))][DeferredDeletion(false)][OptimisticLocking(OptimisticLockingBehavior.ConsiderOptimisticLockingField)]
     [ImageName(("Action_Export_ToText"))][CreatableItem(false)]
-    [Appearance("Bold Text",AppearanceItemType.ViewItem, "1=1",TargetItems = nameof(Text),FontStyle = DXFontStyle.Bold,Context = SpeechTextBandedListView+","+SpeechTranslation.SpeechTranslationBandedListView,FontColor = "PaleTurquoise")]
+    [Appearance("Bold Text",AppearanceItemType.ViewItem, "1=1",TargetItems = nameof(Text),FontStyle = DevExpress.Drawing.DXFontStyle.Bold,Context = SpeechTextBandedListView+","+SpeechTranslation.SpeechTranslationBandedListView,FontColor = "PaleTurquoise")]
     [FileAttachment(nameof(File))][SuppressMessage("Design", "XAF0023:Do not implement IObjectSpaceLink in the XPO types")]
     public class SpeechText:CustomBaseObject,ISelectInExplorer ,IAudioFileLink{
         public const string SpeechTextBaseListView = "SpeechText_Base_ListView";

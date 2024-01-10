@@ -18,10 +18,14 @@ using StartupExtensions = DevExpress.ExpressApp.Blazor.Services.StartupExtension
 
 namespace Xpand.XAF.Modules.JobScheduler.Hangfire.Hangfire {
     public class UseHangfire : IStartupFilter {
-        static UseHangfire() =>
-            typeof(StartupExtensions).Method(nameof(StartupExtensions.UseXaf),Flags.StaticPublic)
-                .PatchWith(postFix:new HarmonyMethod(typeof(UseHangfire),nameof(UseXaf)));
-
+        //static UseHangfire() =>
+        //    typeof(StartupExtensions).Method(nameof(StartupExtensions.UseXaf),Fleags.StaticPublic)
+        //        .PatchWith(postFix:new HarmonyMethod(typeof(UseHangfire),nameof(UseXaf)));
+        private static readonly Harmony Harmony = new Harmony(nameof(UseHangfire));
+        static UseHangfire() {
+            var methodInfo = typeof(StartupExtensions).Method(nameof(StartupExtensions.UseXaf), Flags.StaticPublic);
+            Harmony.Patch(methodInfo, postfix: new HarmonyMethod(typeof(UseHangfire), nameof(UseXaf))); //runtime patching of the UseXaf middleware
+        }
         public static void UseXaf(IApplicationBuilder builder) => Dashboard?.Invoke(builder);
 
         public Action<IApplicationBuilder> Configure(Action<IApplicationBuilder> next) 

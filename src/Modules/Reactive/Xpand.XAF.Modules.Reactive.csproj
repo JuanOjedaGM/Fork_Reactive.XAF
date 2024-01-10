@@ -33,7 +33,7 @@
     <Compile Include="..\..\Common\AssemblyInfoVersion.cs" Link="Properties\AssemblyInfoVersion.cs" />
   </ItemGroup>
   <ItemGroup>
-    <!-- <PackageReference Include="Lib.Harmony" Version="2.2.2" /> -->
+     <PackageReference Include="Lib.Harmony" Version="2.2.2" /> 
     <PackageReference Include="DevExpress.ExpressApp.Security.Xpo" Version="23.2.3" />
     <PackageReference Include="Serialize.Linq" Version="2.0.0" />
   </ItemGroup>
