@@ -32,7 +32,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Lib.Harmony" Version="2.3.0-prerelease.4" />
+    <PackageReference Include="Lib.Harmony" Version="2.3.0-prerelease.4">
+      <GeneratePathProperty>False</GeneratePathProperty>
+    </PackageReference>
     <PackageReference Include="System.ServiceModel.NetTcp" Version="4.10.2" />
     <PackageReference Include="System.ServiceModel.Http" Version="4.10.2" />
     <PackageReference Include="System.ServiceModel.Security" Version="4.10.2" />
